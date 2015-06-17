@@ -154,7 +154,7 @@ void UnityPrintNumber(const _U_SINT number_to_print)
     }
 
     // figure out initial divisor
-    while (number / divisor > 9)
+    while (number / (_U_UINT)divisor > 9)
     {
         next_divisor = divisor * 10;
         if (next_divisor > divisor)
@@ -166,7 +166,7 @@ void UnityPrintNumber(const _U_SINT number_to_print)
     // now mod and print, then divide divisor
     do
     {
-        UNITY_OUTPUT_CHAR((char)('0' + (number / divisor % 10)));
+        UNITY_OUTPUT_CHAR((char)('0' + (number / (_U_UINT)divisor % 10)));
         divisor /= 10;
     }
     while (divisor > 0);
